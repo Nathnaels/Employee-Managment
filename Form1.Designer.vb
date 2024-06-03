@@ -44,6 +44,7 @@ Partial Class login
         password.Name = "password"
         password.Size = New Size(100, 23)
         password.TabIndex = 1
+        password.UseSystemPasswordChar = True
         ' 
         ' Label1
         ' 

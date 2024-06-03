@@ -25,6 +25,7 @@ Partial Class Mainmenu
         Label1 = New Label()
         emp_management = New Button()
         dept_management = New Button()
+        btnlogout = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -55,11 +56,21 @@ Partial Class Mainmenu
         dept_management.Text = "Department management Panel"
         dept_management.UseVisualStyleBackColor = True
         ' 
+        ' btnlogout
+        ' 
+        btnlogout.Location = New Point(540, 271)
+        btnlogout.Name = "btnlogout"
+        btnlogout.Size = New Size(75, 23)
+        btnlogout.TabIndex = 3
+        btnlogout.Text = "log out"
+        btnlogout.UseVisualStyleBackColor = True
+        ' 
         ' Mainmenu
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(btnlogout)
         Controls.Add(dept_management)
         Controls.Add(emp_management)
         Controls.Add(Label1)
@@ -72,4 +83,5 @@ Partial Class Mainmenu
     Friend WithEvents Label1 As Label
     Friend WithEvents emp_management As Button
     Friend WithEvents dept_management As Button
+    Friend WithEvents btnlogout As Button
 End Class

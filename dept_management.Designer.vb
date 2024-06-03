@@ -32,18 +32,20 @@ Partial Class dept_management
         fname = New TextBox()
         btnEdit = New Button()
         GroupBox2 = New GroupBox()
+        lbFoundDept = New ListBox()
         Label14 = New Label()
-        TextBox2 = New TextBox()
+        txtSearchDeptID = New TextBox()
         Label13 = New Label()
-        TextBox1 = New TextBox()
+        txtSearchDeptName = New TextBox()
         btnSearch = New Button()
         btnDelete = New Button()
         GroupBox1 = New GroupBox()
         Label4 = New Label()
         Label1 = New Label()
-        txtLastname = New TextBox()
-        txtFirstname = New TextBox()
-        btnAddEmployee = New Button()
+        txtHeadID = New TextBox()
+        txtDeptName = New TextBox()
+        btnAdd = New Button()
+        mainmenu = New Button()
         GroupBox3.SuspendLayout()
         GroupBox2.SuspendLayout()
         GroupBox1.SuspendLayout()
@@ -134,10 +136,11 @@ Partial Class dept_management
         ' 
         ' GroupBox2
         ' 
+        GroupBox2.Controls.Add(lbFoundDept)
         GroupBox2.Controls.Add(Label14)
-        GroupBox2.Controls.Add(TextBox2)
+        GroupBox2.Controls.Add(txtSearchDeptID)
         GroupBox2.Controls.Add(Label13)
-        GroupBox2.Controls.Add(TextBox1)
+        GroupBox2.Controls.Add(txtSearchDeptName)
         GroupBox2.Controls.Add(btnSearch)
         GroupBox2.Controls.Add(btnDelete)
         GroupBox2.Location = New Point(315, 40)
@@ -146,6 +149,15 @@ Partial Class dept_management
         GroupBox2.TabIndex = 8
         GroupBox2.TabStop = False
         GroupBox2.Text = "Modify Employee Data"
+        ' 
+        ' lbFoundDept
+        ' 
+        lbFoundDept.FormattingEnabled = True
+        lbFoundDept.ItemHeight = 15
+        lbFoundDept.Location = New Point(37, 102)
+        lbFoundDept.Name = "lbFoundDept"
+        lbFoundDept.Size = New Size(120, 94)
+        lbFoundDept.TabIndex = 10
         ' 
         ' Label14
         ' 
@@ -156,12 +168,12 @@ Partial Class dept_management
         Label14.TabIndex = 9
         Label14.Text = "Dept Id"
         ' 
-        ' TextBox2
+        ' txtSearchDeptID
         ' 
-        TextBox2.Location = New Point(82, 63)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(100, 23)
-        TextBox2.TabIndex = 8
+        txtSearchDeptID.Location = New Point(82, 63)
+        txtSearchDeptID.Name = "txtSearchDeptID"
+        txtSearchDeptID.Size = New Size(100, 23)
+        txtSearchDeptID.TabIndex = 8
         ' 
         ' Label13
         ' 
@@ -172,16 +184,16 @@ Partial Class dept_management
         Label13.TabIndex = 7
         Label13.Text = "Dept Name"
         ' 
-        ' TextBox1
+        ' txtSearchDeptName
         ' 
-        TextBox1.Location = New Point(82, 27)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(100, 23)
-        TextBox1.TabIndex = 6
+        txtSearchDeptName.Location = New Point(82, 27)
+        txtSearchDeptName.Name = "txtSearchDeptName"
+        txtSearchDeptName.Size = New Size(100, 23)
+        txtSearchDeptName.TabIndex = 6
         ' 
         ' btnSearch
         ' 
-        btnSearch.Location = New Point(107, 188)
+        btnSearch.Location = New Point(107, 223)
         btnSearch.Name = "btnSearch"
         btnSearch.Size = New Size(75, 23)
         btnSearch.TabIndex = 3
@@ -190,7 +202,7 @@ Partial Class dept_management
         ' 
         ' btnDelete
         ' 
-        btnDelete.Location = New Point(12, 188)
+        btnDelete.Location = New Point(12, 223)
         btnDelete.Name = "btnDelete"
         btnDelete.Size = New Size(75, 23)
         btnDelete.TabIndex = 1
@@ -201,9 +213,9 @@ Partial Class dept_management
         ' 
         GroupBox1.Controls.Add(Label4)
         GroupBox1.Controls.Add(Label1)
-        GroupBox1.Controls.Add(txtLastname)
-        GroupBox1.Controls.Add(txtFirstname)
-        GroupBox1.Controls.Add(btnAddEmployee)
+        GroupBox1.Controls.Add(txtHeadID)
+        GroupBox1.Controls.Add(txtDeptName)
+        GroupBox1.Controls.Add(btnAdd)
         GroupBox1.Location = New Point(22, 37)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(271, 291)
@@ -229,36 +241,46 @@ Partial Class dept_management
         Label1.TabIndex = 5
         Label1.Text = "Dept Name"
         ' 
-        ' txtLastname
+        ' txtHeadID
         ' 
-        txtLastname.Location = New Point(85, 61)
-        txtLastname.Name = "txtLastname"
-        txtLastname.Size = New Size(100, 23)
-        txtLastname.TabIndex = 4
+        txtHeadID.Location = New Point(85, 61)
+        txtHeadID.Name = "txtHeadID"
+        txtHeadID.Size = New Size(100, 23)
+        txtHeadID.TabIndex = 4
         ' 
-        ' txtFirstname
+        ' txtDeptName
         ' 
-        txtFirstname.Location = New Point(85, 32)
-        txtFirstname.Name = "txtFirstname"
-        txtFirstname.Size = New Size(100, 23)
-        txtFirstname.TabIndex = 1
+        txtDeptName.Location = New Point(85, 32)
+        txtDeptName.Name = "txtDeptName"
+        txtDeptName.Size = New Size(100, 23)
+        txtDeptName.TabIndex = 1
         ' 
-        ' btnAddEmployee
+        ' btnAdd
         ' 
-        btnAddEmployee.BackColor = SystemColors.ActiveCaption
-        btnAddEmployee.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        btnAddEmployee.Location = New Point(61, 226)
-        btnAddEmployee.Name = "btnAddEmployee"
-        btnAddEmployee.Size = New Size(110, 30)
-        btnAddEmployee.TabIndex = 0
-        btnAddEmployee.Text = "Add"
-        btnAddEmployee.UseVisualStyleBackColor = False
+        btnAdd.BackColor = SystemColors.ActiveCaption
+        btnAdd.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        btnAdd.Location = New Point(61, 226)
+        btnAdd.Name = "btnAdd"
+        btnAdd.Size = New Size(110, 30)
+        btnAdd.TabIndex = 0
+        btnAdd.Text = "Add"
+        btnAdd.UseVisualStyleBackColor = False
+        ' 
+        ' mainmenu
+        ' 
+        mainmenu.Location = New Point(315, 366)
+        mainmenu.Name = "mainmenu"
+        mainmenu.Size = New Size(103, 30)
+        mainmenu.TabIndex = 10
+        mainmenu.Text = "Main menu"
+        mainmenu.UseVisualStyleBackColor = True
         ' 
         ' dept_management
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(mainmenu)
         Controls.Add(GroupBox3)
         Controls.Add(GroupBox2)
         Controls.Add(GroupBox1)
@@ -284,15 +306,17 @@ Partial Class dept_management
     Friend WithEvents btnEdit As Button
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtSearchDeptID As TextBox
     Friend WithEvents Label13 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSearchDeptName As TextBox
     Friend WithEvents btnSearch As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtLastname As TextBox
-    Friend WithEvents txtFirstname As TextBox
-    Friend WithEvents btnAddEmployee As Button
+    Friend WithEvents txtHeadID As TextBox
+    Friend WithEvents txtDeptName As TextBox
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents mainmenu As Button
+    Friend WithEvents lbFoundDept As ListBox
 End Class
